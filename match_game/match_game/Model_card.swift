@@ -39,9 +39,9 @@ class model_card {
         //            }while array_card_temp.count < 8
         //dùng vào lặp while do để tạo 1 mảng gồm các phần từ không bị duplicate
         //kiểm tra count < 8 thi chạy vòng loop
-        while array_card_temp.count < 8 {
+        while array_card_temp.count < 20 {
             //tạo 1 biến random từ 1 >> 4
-            let random = arc4random_uniform(4) + 1
+            let random = arc4random_uniform(20) + 1
             //truyền giái trị vào beiens card
 //            let card_h: card = card(id: "\(random)", isFlipped: false, isMatch: false)
 //            array_card_backup.append(card_h)

@@ -30,8 +30,8 @@ class match_game_controller: UICollectionViewController, UICollectionViewDelegat
         self.collectionView!.register(cell_match_game.self, forCellWithReuseIdentifier: reuseIdentifier)
         //        collectionView.register(cell_didselect.self, forCellWithReuseIdentifier: didselect_reuseIdentifier)
         //cách top - left - right - bot
-        self.collectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
-        self.collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+        self.collectionView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8)
+        self.collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8)
         
     }
     
@@ -55,7 +55,7 @@ class match_game_controller: UICollectionViewController, UICollectionViewDelegat
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 8
+        return array_card.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -68,21 +68,15 @@ class match_game_controller: UICollectionViewController, UICollectionViewDelegat
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! cell_match_game
         let card = array_card[indexPath.row]
-        if card.isFlipped == false {
             cell.transition()
-            card.isFlipped = true
-            //set giái trị card 1
             if first_Flipped_index == nil {
                 first_Flipped_index = indexPath
             }
             else {
                 check_match(secondindex: indexPath)
             }
-        }
-        else {
-            cell.flip_black()
-            card.isFlipped = false
-        }
+
+        
     }
     
     func check_match(secondindex: IndexPath){
