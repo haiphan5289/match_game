@@ -97,8 +97,10 @@ class match_game_controller: UICollectionViewController, UICollectionViewDelegat
         //check kiểm tra giái trị 2 card
         if cardtwo.id == cardone.id {
             first_Flipped_index = nil
-            cardcell.img_show.alpha = 0
-            cardtwocell.img_show.alpha = 0
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                cardcell.img_show.alpha = 0
+                cardtwocell.img_show.alpha = 0
+            }
         }
         else {
             first_Flipped_index = nil
